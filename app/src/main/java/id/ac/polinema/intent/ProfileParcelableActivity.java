@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import id.ac.polinema.intent.model.User;
+
 public class ProfileParcelableActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class ProfileParcelableActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-
+//            String usernameInput
             // TODO: display value here
         }
     }
