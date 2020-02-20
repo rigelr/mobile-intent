@@ -10,8 +10,6 @@ public class User implements Parcelable {
     private String name;
     private int age;
 
-    User user = new User(username,name,age);
-
     public User(String username, String name, int age) {
         this.username = username;
         this.name = name;
@@ -22,7 +20,6 @@ public class User implements Parcelable {
         username = in.readString();
         name = in.readString();
         age = in.readInt();
-        user = in.readParcelable(User.class.getClassLoader());
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -68,9 +65,8 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(username);
-        parcel.writeString(name);
-        parcel.writeInt(age);
-        parcel.writeParcelable(user, i);
+        parcel.writeString(this.username);
+        parcel.writeString(this.name);
+        parcel.writeInt(this.age);
     }
 }

@@ -11,16 +11,13 @@ import id.ac.polinema.intent.model.User;
 
 public class ParcelableActivity extends AppCompatActivity {
 
-    public static final String USER_KEY="user";
+    public static  String USER_KEY="USER_KEY";
 
     private EditText usernameInput;
     private EditText nameInput;
     private EditText ageInput;
 
 
-    private String username;
-    private String name;
-    private int age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +29,13 @@ public class ParcelableActivity extends AppCompatActivity {
     }
 
     public void handleSubmit(View view) {
-        User user = new User(username, name, age);
-        Intent intent = new Intent(this, ProfileParcelableActivity.class);
-        intent.putExtra(USER_KEY, user);
+        String username =usernameInput.getText().toString();
+        String name=nameInput.getText().toString();
+        int age= Integer.parseInt(ageInput.getText().toString());
 
+        Intent intent = new Intent(this, ProfileParcelableActivity.class);
+        intent.putExtra(USER_KEY, new User(username, name, age));
+
+        startActivity(intent);
     }
 }
